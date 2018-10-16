@@ -7,7 +7,10 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "eagle.js": "^0.4.1",
+    "highlight.js": "^9.13.0",
+    "jstransformer-escape-vuejs": "^1.0.4",
     "vue": "^2.5.17"
   },
   "devDependencies": {
@@ -15,6 +18,7 @@
     "@vue/cli-service": "^3.0.3",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
+    "vue-cli-plugin-html-replace": "^1.2.0",
     "vue-cli-plugin-pug": "^1.0.7",
     "vue-template-compiler": "^2.5.17"
   }
