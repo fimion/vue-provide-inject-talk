@@ -29,8 +29,10 @@
 					img(src="./assets/provide-inject-talking.png")
 			v-slide
 				h4.center Simple Provide/Inject
+				label Template
 				eg-code-block(lang="html")
 					include:escape-vuejs ./components/SimpleProvide/template.html
+				label Script
 				eg-code-block(lang="js")
 					include ./components/SimpleProvide/script.js
 			v-slide
@@ -45,11 +47,20 @@
 				h4.center Simple Provide/Inject
 				p
 					simple-provide
+			v-slide
+				h4.center Promise Provide
+				label Template
+				eg-code-block(lang="html")
+					include:escape-vuejs ./components/PromiseProvide/template.html
+				label Script
+				eg-code-block(lang="js")
+					include ./components/PromiseProvide/script.js
 </template>
 
 <script>
   import eagle from 'eagle.js'
   import SimpleProvide from './components/SimpleProvide'
+	import PromiseProvide from './components/PromiseProvide'
   import escapeVue from './utils/escape-vue'
 
   const TransitionedSlide = {
@@ -77,7 +88,8 @@
     },
     components: {
       'v-slide': TransitionedSlide,
-      SimpleProvide
+      SimpleProvide,
+			PromiseProvide,
     },
     methods: {
       escapeVue,
