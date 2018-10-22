@@ -1,7 +1,7 @@
 <template lang="pug">
 	.local-eg-theme-vue
 		.eg-slideshow
-			v-slide
+			v-slide.flex-center
 				.center.frontpage
 					h1 Reactive Provide/Inject
 					h4 State Management for Component Libraries
@@ -52,15 +52,60 @@
 				label Template
 				eg-code-block(lang="html")
 					include:escape-vuejs ./components/PromiseProvide/template.html
+			v-slide
+				h4.center Promise Provide
 				label Script
 				eg-code-block(lang="js")
 					include ./components/PromiseProvide/script.js
+			v-slide
+				h4.center Promise Inject
+				label Template
+				eg-code-block(lang="html")
+					include:escape-vuejs ./components/PromiseInject/template.html
+				label Script
+				eg-code-block(lang="js")
+					include ./components/PromiseInject/script.js
+			v-slide
+				h4.center Promise Demo
+				promise-provide
+			v-slide.flex-center
+				.center
+					h1 Great but...
+			v-slide.flex-center
+				.center
+					h1 Let's make it reactive!
+			v-slide
+				h4.center Reactive Provide
+				label Template
+				eg-code-block(lang="html")
+					include:escape-vuejs ./components/ReactiveProvide/template.html
+			v-slide
+				h4.center Reactive Provide
+				label Script
+				eg-code-block(lang="js")
+					include ./components/ReactiveProvide/script.js
+			v-slide
+				h4.center Reactive Inject
+				label Template
+				eg-code-block(lang="html")
+					include:escape-vuejs ./components/ReactiveInject/template.html
+				label Script
+				eg-code-block(lang="js")
+					include ./components/ReactiveInject/script.js
+			v-slide
+				h4.center Reactive Demo
+				reactive-provide
+			v-slide.flex-center
+				h1.center YAY!
+				h2.center Let's make a real world example now.
+
 </template>
 
 <script>
   import eagle from 'eagle.js'
   import SimpleProvide from './components/SimpleProvide'
 	import PromiseProvide from './components/PromiseProvide'
+	import ReactiveProvide from './components/ReactiveProvide'
   import escapeVue from './utils/escape-vue'
 
   const TransitionedSlide = {
@@ -90,6 +135,7 @@
       'v-slide': TransitionedSlide,
       SimpleProvide,
 			PromiseProvide,
+			ReactiveProvide
     },
     methods: {
       escapeVue,
@@ -105,6 +151,10 @@
 	body {
 		margin: 0;
 	}
+	p{
+		margin-block-start: 0;
+		margin-block-end: 0;
+	}
 
 	.local-eg-theme-vue {
 		.eg-slideshow {
@@ -119,6 +169,14 @@
 			h1,h2,h3,h4{
 				margin-block-start: 0.5em;
 				margin-block-end: 0.5em;
+			}
+			.eg-slide{
+				&.flex-center{
+					display:flex;
+					flex-flow: column nowrap;
+					justify-content: center;
+					align-items: center;
+				}
 			}
 			.eg-slide-content, .subslide {
 				width: 25em;
@@ -140,6 +198,7 @@
 					}
 				}
 			}
+
 			.code-box {
 				box-shadow: 0 0 0.25em 0.25em #ddd
 			}
