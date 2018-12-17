@@ -1,11 +1,11 @@
 import ReactiveInject from "../ReactiveInject"
 
 export default {
-  data(){
+  data() {
     return {
       thing: "Hello World",
     }
-  } ,
+  },
   methods: {
     getThing() {
       return this.thing;
@@ -14,10 +14,10 @@ export default {
       this.thing = data;
     },
   },
-  provide () {
+  provide() {
     return {
-      getThing:this.getThing,
-      setThing:this.setThing
+      getThing: this.getThing,
+      setThing: this.setThing
     }
   },
   components: {

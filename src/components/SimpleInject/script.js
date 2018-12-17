@@ -1,4 +1,4 @@
 export default {
-  name:"simple-inject",
-  inject:['count'],
+  name: "simple-inject",
+  inject: ['count'],
 }

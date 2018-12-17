@@ -1,12 +1,16 @@
 export default {
-  data(){
+  data() {
     return {}
   },
-  computed:{
-    thing:{
-      get:function(){return this.getThing()},
-      set:function(d){this.setThing(d)},
+  computed: {
+    thing: {
+      get: function () {
+        return this.getThing()
+      },
+      set: function (d) {
+        this.setThing(d)
+      },
     }
   },
-  inject: ["getThing","setThing"],
+  inject: ["getThing", "setThing"],
 }
