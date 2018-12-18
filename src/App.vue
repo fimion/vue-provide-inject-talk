@@ -11,7 +11,7 @@
           .eg-slide-content(v-if="step >= 2")
             ul
               li Alex Riviere
-              li Full Stack Web Developer at Exerve, Inc.
+              li Full Stack Web Developer
               li Primarily code in Python and Javascript
       v-slide(:steps="5")
         h4.center How can we pass data between components?
@@ -33,7 +33,7 @@
         .center
           img(src="./assets/provide-inject-talking.png")
       v-slide
-        h4.center Simple Provide/Inject
+        h4.center Simple Provide
         .dual-blocks
           .side
             label Template
@@ -44,7 +44,7 @@
             eg-code-block(lang="js")
               include ./components/SimpleProvide/script.js
       v-slide
-        h4.center Simple Provide/Inject
+        h4.center Simple Inject
         .dual-blocks
           .side
             label Template
@@ -83,10 +83,8 @@
       v-slide
         h4.center Promise Demo
         promise-provide
-      v-slide(:steps="2")
-        h1.center Great but...
-        eg-transition(enter="fadeIn")
-          h1.center(v-if="step>=2") Let's make it reactive!
+      v-slide
+        h1.center Let's make it reactive!
       v-slide
         h4.center Reactive Provide
         .dual-blocks
