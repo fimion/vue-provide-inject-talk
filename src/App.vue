@@ -110,9 +110,132 @@
       v-slide
         h4.center Reactive Demo
         reactive-provide
+      v-slide(:steps="2")
+        h1.center Story Time
+        eg-transition(enter="fadeIn")
+          h2.center(v-if="step>=2") The Quantity Input
       v-slide.flex-center
-        h1.center YAY!
-        h2.center Let's make a real world example now.
+        .center
+          img(src="./assets/the-boss-man.jpg")
+      v-slide.flex-center
+        .center
+          img(src="./assets/the-innovative-designer.jpg")
+      v-slide.flex-center
+        .center
+          img(src="./assets/the-thoughtful-designer.jpg")
+      v-slide.flex-center
+        .center
+          img(src="./assets/the-hip-programmer.jpg")
+      v-slide.flex-center
+        ul
+          li A Quantity Input
+          li Buttons should go on either side
+          li Buttons can also end up on one side
+          li Base components should be usable on their own.
+      v-slide.flex-center
+        h1 VQuantity
+      v-slide
+        h4.center VQuantity
+        .dual-blocks
+          .side
+            label Template
+            eg-code-block(lang="html")
+              include:escape-vuejs ./components/FinalProduct/VQuantity/template.html
+          .side
+            label Script
+            eg-code-block.compress(lang="js")
+              include ./components/FinalProduct/VQuantity/script.js
+      v-slide.flex-center
+        h1 VNumberInput
+      v-slide
+        h4.center VNumberInput
+        .dual-blocks
+          .side
+            label Template
+            eg-code-block(lang="html")
+              include:escape-vuejs ./components/FinalProduct/VNumberInput/template.html
+          .side
+            label Script
+            eg-code-block.compress(lang="js")
+              include ./components/FinalProduct/VNumberInput/script.js
+      v-slide.flex-center
+        h1 VIncrementButton
+      v-slide
+        h4.center VIncrementButton
+        .dual-blocks
+          .side
+            label Template
+            eg-code-block(lang="html")
+              include:escape-vuejs ./components/FinalProduct/VIncrementButton/template.html
+          .side
+            label Script
+            eg-code-block.compress(lang="js")
+              include ./components/FinalProduct/VIncrementButton/script.js
+      v-slide.flex-center
+        h1 VPlusButton
+        h1 VMinusButton
+      v-slide
+        h4.center VPlusButton/VMinusButton
+        .dual-blocks
+          .side
+            label VPlusButton
+            eg-code-block(lang="vue")
+              include:escape-vuejs ./components/FinalProduct/VPlusButton.vue
+          .side
+            label VMinusButton
+            eg-code-block(lang="vue")
+              include:escape-vuejs ./components/FinalProduct/VMinusButton.vue
+      v-slide.flex-center
+        h1 Demos
+      v-slide
+        h4.center VQuantity Basic Usage
+        .dual-blocks
+          .side
+            label Code
+            eg-code-block(lang="vue")
+              include:escape-vuejs ./components/FinalProduct/basic-usage.html
+          .side
+            label Result
+            v-quantity(v-model="basicCount")
+      v-slide
+        h4.center VQuantity Reconfigurable
+        .dual-blocks
+          .side
+            label Code
+            eg-code-block(lang="vue")
+              include:escape-vuejs ./components/FinalProduct/reconfigurable.html
+          .side
+            label Result
+            v-quantity(v-model="reconfigurableCount")
+              v-number-input
+              v-plus-button
+              v-minus-button
+      v-slide
+        h4.center Direct Calls
+        .dual-blocks
+          .side
+            label Code
+            eg-code-block(lang="vue")
+              include:escape-vuejs ./components/FinalProduct/direct-call.html
+          .side
+            label Result
+            div
+              v-plus-button(@click="incrementDirectCallCount") Plus!
+              v-number-input(v-model.number="directCallCount")
+              v-minus-button(@click="incrementDirectCallCount") Minus!
+      v-slide.flex-center
+        h1.center Questions?
+        ul
+          li
+            a(href="https://github.com/fimion/vue-provide-inject-talk/")
+              | https://github.com/fimion/vue-provide-inject-talk/
+          li
+            a(href="https://github.com/fimion/vue-provide-inject-talk/") @fimion
+            |   on twitter
+          li
+            a(href="https://github.com/fimion/vue-provide-inject-talk/") https://alex.party
+            |  - My Blog
+
 
 </template>
 
@@ -121,6 +244,10 @@
   import SimpleProvide from './components/SimpleProvide'
   import PromiseProvide from './components/PromiseProvide'
   import ReactiveProvide from './components/ReactiveProvide'
+  import VQuantity from './components/FinalProduct/VQuantity'
+  import VNumberInput from './components/FinalProduct/VNumberInput'
+  import VMinusButton from './components/FinalProduct/VMinusButton'
+  import VPlusButton from './components/FinalProduct/VPlusButton'
   import escapeVue from './utils/escape-vue'
 
   const TransitionedSlide = {
@@ -128,7 +255,7 @@
     delimiters: ["[[", "]]"],
     props: {
       enter: {default: 'fadeIn'},
-      leave: {default: ''}
+      leave: {default: 'fadeOut'}
     }
   }
 
@@ -138,9 +265,12 @@
     mixins: [eagle.slideshow],
     data() {
       return {
-        //count:"{{count}}",
+        basicCount:0,
+        directCallCount:0,
+        reconfigurableCount:0,
       }
     },
+    mouseNavigation:false,
     infos: {
       title: "Reactive Provide/Inject: State Management for Component Libraries",
       description: "December 2018 - Vue.js Atlanta Meetup",
@@ -149,10 +279,17 @@
       'v-slide': TransitionedSlide,
       SimpleProvide,
       PromiseProvide,
-      ReactiveProvide
+      ReactiveProvide,
+      VQuantity,
+      VNumberInput,
+      VMinusButton,
+      VPlusButton,
     },
     methods: {
       escapeVue,
+      incrementDirectCallCount(amount){
+        this.directCallCount += amount
+      }
     }
   }
 </script>
@@ -240,6 +377,10 @@
         box-shadow: 0 0 0.25em 0.25em #ddd
       }
 
+      .compress{
+        font-size:18px;
+      }
+
       .eg-code-comment {
         font-weight: bold;
         color: #dd4321
@@ -268,7 +409,7 @@
         border: none;
       }
 
-      .button {
+      .button, button {
         background: none;
         cursor: pointer;
         border: none;
@@ -278,12 +419,12 @@
         padding: 0.2em 0.2em;
         margin-left: 0.5em;
         margin-right: 0.5em;
-
+        font-size:1em;
         text-align: center;
         text-decoration: none;
         margin-top: 1em;
         display: inline-block;
-        line-height: 1em
+        line-height: 1.25em
       }
 
       .eg-switch {

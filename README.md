@@ -1,5 +1,9 @@
 # provide-inject-talk
 
+This talk can be found at 
+
+https://fimion.github.io/vue-provide-inject-talk/
+
 ## Project setup
 ```
 yarn install

@@ -15,7 +15,7 @@ export default {
       return this.value
     },
     setValue:function(data){
-      this.$emit('input',data)
+      this.$emit('input',parseInt(data))
     },
     incrementValue:function(amount){
       this.setValue(this.value + amount)
@@ -23,9 +23,9 @@ export default {
   },
   provide:function(){
     return {
-      '$_set':this.setValue,
-      '$_get':this.getValue,
-      '$_increment':this.incrementValue,
+      '$_input_set':this.setValue,
+      '$_input_get':this.getValue,
+      '$_increment_button':this.incrementValue,
     }
   }
 }

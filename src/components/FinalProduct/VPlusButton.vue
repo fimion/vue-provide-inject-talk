@@ -1,5 +1,6 @@
 <template>
   <v-increment-button v-on="$listeners"
+                      v-bind="$attrs"
                       :amount="1">
     <slot>+</slot>
   </v-increment-button>

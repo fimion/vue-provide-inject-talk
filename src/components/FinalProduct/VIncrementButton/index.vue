@@ -6,8 +6,10 @@
 <style scoped>
   button{
     background-color:transparent;
-    font-size:18px;
+    font-size:1em;
     line-height: 1.5em;
-    border-radius:3px;
+    border-radius: .5em;
+    min-width: 1.5em;
+    margin:2px!important;
   }
 </style>

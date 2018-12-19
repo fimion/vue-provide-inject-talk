@@ -17,5 +17,5 @@ Vue.config.productionTip = false
 
 new Vue({
   delimiters:["[[","]]"],
-  render: h => h(App)
+  render: h => h(App,{props:{mouseNavigation:false}})
 }).$mount('#app')
