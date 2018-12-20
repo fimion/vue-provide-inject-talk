@@ -159,9 +159,9 @@
             eg-code-block.compress(lang="js")
               include components/FinalProduct/NumberInput/script.js
       v-slide.flex-center
-        h1 VIncrementButton
+        h1 IncrementButton
       v-slide
-        h1.center.compress VIncrementButton
+        h1.center.compress IncrementButton
         .dual-blocks
           .side
             label.compress Template
