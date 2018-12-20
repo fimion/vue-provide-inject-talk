@@ -4,7 +4,6 @@
   input{
     border-radius: .5em!important;
     border: 0.1em solid gray!important;
-    font-size:18px;
     line-height: 1.5em;
     max-width:2em;
     text-align: center;

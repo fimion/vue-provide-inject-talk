@@ -1,16 +1,16 @@
 <template>
-  <v-increment-button v-on="$listeners"
+  <increment-button v-on="$listeners"
                       v-bind="$attrs"
                       :amount="-1">
     <slot>-</slot>
-  </v-increment-button>
+  </increment-button>
 </template>
 <script>
-  import VIncrementButton from './VIncrementButton'
+  import IncrementButton from './IncrementButton'
   export default {
-    name: "v-minus-button",
+    name: "minus-button",
     components:{
-      VIncrementButton,
+      IncrementButton,
     }
   }
 </script>

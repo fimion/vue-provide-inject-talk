@@ -1,4 +1,5 @@
 export default {
+  name:"number-input",
   props: {
     value: {
       type: Number,
@@ -21,7 +22,7 @@ export default {
             this.$emit('input', parseInt(data))
           }
         }else{
-          throw new Error("VNumberInput requires either "+
+          throw new Error("NumberInput requires either "+
           "$_input_set() provided or an @input handler")
         }
       }

@@ -1,16 +1,14 @@
 export default {
-  data() {
-    return {}
-  },
+  name:"reactive-inject",
+  inject: ["getParentMessage", "setParentMessage"],
   computed: {
-    thing: {
+    injectedMessage: {
       get: function () {
-        return this.getThing()
+        return this.getParentMessage()
       },
       set: function (d) {
-        this.setThing(d)
+        this.setParentMessage(d)
       },
     }
   },
-  inject: ["getThing", "setThing"],
 }

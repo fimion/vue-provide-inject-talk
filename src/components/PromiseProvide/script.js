@@ -3,7 +3,7 @@ import PromiseInject from "../PromiseInject"
 export default {
   data() {
     return {
-      thing: "Hello World",
+      parentMessage: "Hello World",
     }
   },
   methods: {
@@ -11,7 +11,7 @@ export default {
       this.$on('button-push', resolve)
     },
     buttonClick: function () {
-      this.$emit('button-push', this.thing)
+      this.$emit('button-push', this.parentMessage)
     }
   },
   components: {
@@ -19,7 +19,7 @@ export default {
   },
   provide: function () {
     return {
-      promise: new Promise(this.handlePromise)
+      providedPromise: new Promise(this.handlePromise)
     }
   }
 }

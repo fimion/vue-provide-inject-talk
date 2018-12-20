@@ -5,15 +5,15 @@
         .center.frontpage
           h1 Reactive Provide/Inject
           h4 State Management for Component Libraries
-      v-slide(:steps="2")
+      v-slide(:steps="2" style="margin-top:20vh;")
         h2.center Who Am I?
         eg-transition(enter="fadeIn")
           .eg-slide-content(v-if="step >= 2")
             ul
               li Alex Riviere
               li Full Stack Web Developer
-              li Primarily code in Python and Javascript
-      v-slide(:steps="5")
+              li Primarily code in Python and JavaScript
+      v-slide(:steps="5" style="margin-top:20vh;")
         h4.center How can we pass data between components?
         ul.eg-slide-content
           eg-transition(enter="fadeIn")
@@ -24,11 +24,11 @@
             li(v-if="step >= 4")  this.$root/this.$parent (Not advised)
           eg-transition(enter="fadeIn")
             li(v-if="step >= 5")  Provide/Inject
-      v-slide
+      v-slide.flex-center
         h4.center $props/$emit
         .center
           img(src="./assets/props-emit-talking.png")
-      v-slide
+      v-slide.flex-center
         h4.center provide/inject
         .center
           img(src="./assets/provide-inject-talking.png")
@@ -86,25 +86,25 @@
       v-slide
         h1.center Let's make it reactive!
       v-slide
-        h4.center Reactive Provide
+        h1.center.compress Reactive Provide
         .dual-blocks
           .side
-            label Template
+            label.compress Template
             eg-code-block(lang="html")
               include:escape-vuejs ./components/ReactiveProvide/template.html
           .side
-            label Script
+            label.compress Script
             eg-code-block(lang="js")
               include ./components/ReactiveProvide/script.js
       v-slide
-        h4.center Reactive Inject
+        h4.center.compress Reactive Inject
         .dual-blocks
           .side
-            label Template
+            label.compress Template
             eg-code-block(lang="html")
               include:escape-vuejs ./components/ReactiveInject/template.html
           .side
-            label Script
+            label.compress Script
             eg-code-block(lang="js")
               include ./components/ReactiveInject/script.js
       v-slide
@@ -133,62 +133,61 @@
           li Buttons can also end up on one side
           li Base components should be usable on their own.
       v-slide.flex-center
-        h1 VQuantity
+        h1 Quantity Component
       v-slide
-        h4.center VQuantity
+        h1.center.compress Quantity
         .dual-blocks
           .side
-            label Template
+            label.compress Template
             eg-code-block(lang="html")
-              include:escape-vuejs ./components/FinalProduct/VQuantity/template.html
+              include:escape-vuejs components/FinalProduct/Quantity/template.html
           .side
-            label Script
+            label.compress Script
             eg-code-block.compress(lang="js")
-              include ./components/FinalProduct/VQuantity/script.js
+              include components/FinalProduct/Quantity/script.js
       v-slide.flex-center
-        h1 VNumberInput
+        h1 NumberInput
       v-slide
-        h4.center VNumberInput
+        h1.center.compress NumberInput
         .dual-blocks
           .side
-            label Template
+            label.compress Template
             eg-code-block(lang="html")
-              include:escape-vuejs ./components/FinalProduct/VNumberInput/template.html
+              include:escape-vuejs components/FinalProduct/NumberInput/template.html
           .side
-            label Script
+            label.compress Script
             eg-code-block.compress(lang="js")
-              include ./components/FinalProduct/VNumberInput/script.js
+              include components/FinalProduct/NumberInput/script.js
       v-slide.flex-center
         h1 VIncrementButton
       v-slide
-        h4.center VIncrementButton
+        h1.center.compress VIncrementButton
         .dual-blocks
           .side
-            label Template
+            label.compress Template
             eg-code-block(lang="html")
-              include:escape-vuejs ./components/FinalProduct/VIncrementButton/template.html
+              include:escape-vuejs components/FinalProduct/IncrementButton/template.html
           .side
-            label Script
-            eg-code-block.compress(lang="js")
-              include ./components/FinalProduct/VIncrementButton/script.js
+            label.compress Script
+            eg-code-block(lang="js")
+              include components/FinalProduct/IncrementButton/script.js
       v-slide.flex-center
-        h1 VPlusButton
-        h1 VMinusButton
+        h1 PlusButton
+        h1 MinusButton
       v-slide
-        h4.center VPlusButton/VMinusButton
         .dual-blocks
           .side
-            label VPlusButton
+            label PlusButton
             eg-code-block(lang="vue")
-              include:escape-vuejs ./components/FinalProduct/VPlusButton.vue
+              include:escape-vuejs components/FinalProduct/PlusButton.vue
           .side
-            label VMinusButton
+            label MinusButton
             eg-code-block(lang="vue")
-              include:escape-vuejs ./components/FinalProduct/VMinusButton.vue
+              include:escape-vuejs components/FinalProduct/MinusButton.vue
       v-slide.flex-center
         h1 Demos
       v-slide
-        h4.center VQuantity Basic Usage
+        h4.center Quantity Basic Usage
         .dual-blocks
           .side
             label Code
@@ -196,9 +195,9 @@
               include:escape-vuejs ./components/FinalProduct/basic-usage.html
           .side
             label Result
-            v-quantity(v-model="basicCount")
+            quantity(v-model="basicCount")
       v-slide
-        h4.center VQuantity Reconfigurable
+        h4.center Quantity Reconfigurable
         .dual-blocks
           .side
             label Code
@@ -206,10 +205,10 @@
               include:escape-vuejs ./components/FinalProduct/reconfigurable.html
           .side
             label Result
-            v-quantity(v-model="reconfigurableCount")
-              v-number-input
-              v-plus-button
-              v-minus-button
+            quantity(v-model="reconfigurableCount")
+              number-input
+              plus-button
+              minus-button
       v-slide
         h4.center Direct Calls
         .dual-blocks
@@ -220,9 +219,9 @@
           .side
             label Result
             div
-              v-plus-button(@click="incrementDirectCallCount") Plus!
-              v-number-input(v-model.number="directCallCount")
-              v-minus-button(@click="incrementDirectCallCount") Minus!
+              plus-button(@click="incrementDirectCallCount") Plus!
+              number-input(v-model.number="directCallCount")
+              minus-button(@click="incrementDirectCallCount") Minus!
       v-slide.flex-center
         h1.center Questions?
         ul
@@ -244,10 +243,10 @@
   import SimpleProvide from './components/SimpleProvide'
   import PromiseProvide from './components/PromiseProvide'
   import ReactiveProvide from './components/ReactiveProvide'
-  import VQuantity from './components/FinalProduct/VQuantity'
-  import VNumberInput from './components/FinalProduct/VNumberInput'
-  import VMinusButton from './components/FinalProduct/VMinusButton'
-  import VPlusButton from './components/FinalProduct/VPlusButton'
+  import Quantity from './components/FinalProduct/Quantity'
+  import NumberInput from './components/FinalProduct/NumberInput'
+  import MinusButton from './components/FinalProduct/MinusButton'
+  import PlusButton from './components/FinalProduct/PlusButton'
   import escapeVue from './utils/escape-vue'
 
   const TransitionedSlide = {
@@ -280,10 +279,10 @@
       SimpleProvide,
       PromiseProvide,
       ReactiveProvide,
-      VQuantity,
-      VNumberInput,
-      VMinusButton,
-      VPlusButton,
+      Quantity,
+      NumberInput,
+      MinusButton,
+      PlusButton,
     },
     methods: {
       escapeVue,
@@ -318,6 +317,10 @@
 
       .eg-code-block {
         margin-top: 20px;
+        font-size:0.6em;
+        pre{
+          margin:0;
+        }
       }
 
       h1, h2, h3, h4 {
@@ -335,8 +338,7 @@
       }
 
       .eg-slide-content, .subslide {
-        width: 25em;
-        max-width: 80%;
+        width: 80vw;
         margin: 0 auto;
 
         .eg-triggered-message {
@@ -373,12 +375,26 @@
         }
       }
 
+      li{
+        font-size:1.5em;
+      }
+
       .code-box {
         box-shadow: 0 0 0.25em 0.25em #ddd
       }
 
       .compress{
-        font-size:18px;
+        font-size:0.55em;
+      }
+
+      h1.compress{
+        font-size:1em;
+        line-height: 1em;
+        -webkit-margin-after: 0.1em;
+        margin-block-end: 0.1em;
+      }
+      label.compress{
+        font-size: .6em;
       }
 
       .eg-code-comment {

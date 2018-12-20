@@ -2,16 +2,17 @@ export default {
   name: "promise-inject",
   data: function () {
     return {
-      thing: 'I am waiting on a promise!'
+      childMessage: 'I am waiting on a promise!'
     }
   },
   methods: {
-    changeThing: function (response) {
-      this.thing = response
+    changeChildMessage: function (response) {
+      this.childMessage = response
     }
   },
-  inject: ['promise'],
+  inject: ['providedPromise'],
   mounted: function () {
-    this.promise.then(this.changeThing)
+    this.providedPromise
+        .then(response=>this.changeChildMessage(response))
   }
 }

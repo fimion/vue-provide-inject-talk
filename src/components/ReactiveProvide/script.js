@@ -3,21 +3,21 @@ import ReactiveInject from "../ReactiveInject"
 export default {
   data() {
     return {
-      thing: "Hello World",
+      parentMessage: "Hello World",
     }
   },
   methods: {
-    getThing() {
-      return this.thing;
+    getParentMessage() {
+      return this.parentMessage;
     },
-    setThing(data) {
-      this.thing = data;
+    setParentMessage(data) {
+      this.parentMessage = data;
     },
   },
   provide() {
     return {
-      getThing: this.getThing,
-      setThing: this.setThing
+      getParentMessage: this.getParentMessage,
+      setParentMessage: this.setParentMessage
     }
   },
   components: {

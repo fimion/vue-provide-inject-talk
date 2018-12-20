@@ -1,11 +1,11 @@
 <div>
-  <p>{{thing}}</p>
-  <p>^ This is Thing</p>
+  <p>{{parentMessage}}</p>
+  <p>^ This is the parentMessage</p>
   <p><input type="text"
-            v-model="thing"></p>
-  <p><button class="button"
+            v-model="parentMessage"></p>
+  <button class="button"
           @click="buttonClick">
     Modify Nested Component
-  </button></p>
+  </button>
   <promise-inject/>
 </div>

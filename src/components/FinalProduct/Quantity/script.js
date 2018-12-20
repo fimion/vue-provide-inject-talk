@@ -1,15 +1,15 @@
-import VNumberInput from '../VNumberInput'
-import VPlusButton from '../VPlusButton'
-import VMinusButton from '../VMinusButton'
+import NumberInput from '../NumberInput'
+import PlusButton from '../PlusButton'
+import MinusButton from '../MinusButton'
 export default {
-  name:"v-quantity",
+  name:"quantity",
   props:{
     value:{
       type:Number,
       required:true,
     }
   },
-  components:{VNumberInput,VPlusButton,VMinusButton},
+  components:{NumberInput,PlusButton,MinusButton},
   methods:{
     getValue:function(){
       return this.value

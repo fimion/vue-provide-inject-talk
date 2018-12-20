@@ -1,5 +1,5 @@
 export default {
-  name: 'v-increment-button',
+  name: 'increment-button',
   inject: {
     '$_increment_button': {
       default: function() {
@@ -9,7 +9,8 @@ export default {
           }
         } else {
           throw new Error("VIncrementButton needs either "
-              + "$_increment_button() provided or an @click listener.")
+              + "$_increment_button() provided or an "
+              + "@click listener.")
         }
       }
     }
