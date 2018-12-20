@@ -234,7 +234,7 @@
           li
             a(href="https://github.com/fimion/vue-provide-inject-talk/") https://alex.party
             |  - My Blog
-
+          li Thanks to Chris Fritz and Josh Justice for their invaluable feedback.
 
 </template>
 
